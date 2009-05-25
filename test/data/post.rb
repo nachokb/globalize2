@@ -22,3 +22,10 @@ end
 class TranslatedComment < Comment
   translates :content
 end
+
+module SomeNamespace
+  class NamespacedEntity < ActiveRecord::Base
+    set_table_name :namespaced_entities
+    translates :body
+  end
+end

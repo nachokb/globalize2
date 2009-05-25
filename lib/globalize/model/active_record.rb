@@ -8,7 +8,7 @@ module Globalize
     module ActiveRecord
       class << self                
         def create_proxy_class(klass)
-          Object.const_set "#{klass.name}Translation", Class.new(::ActiveRecord::Base){
+          klass.parent.const_set "#{klass.name.demodulize}Translation", Class.new(::ActiveRecord::Base){
             belongs_to "#{klass.name.underscore}".intern
             
             def locale

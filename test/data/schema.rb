@@ -36,4 +36,8 @@ ActiveRecord::Schema.define do
     t.text       :content
   end
   
+  create_table :namespaced_entities, :force => true do |t|
+    t.string :name
+    t.text   :body
+  end
 end
